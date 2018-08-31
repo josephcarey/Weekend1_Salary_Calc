@@ -16,11 +16,15 @@
         <h1>Salary Calculator</h1>
     </div>
     <div id="controlDiv">
-        <input id="firstNameInput" type="text" placeholder="First Name" />
-        <input id="lastNameInput" type="text" placeholder="Last Name" />
-        <input id="idInput" type="number" placeholder="ID" />
-        <input id="titleInput" type="text" placeholder="Title" />
-        <input id="annualSalaryInput" type="number" placeholder="Title" />
+
+        <!-- Consider wrapping these in a form? Then we can include required, autocomplete -->
+        <input class="wipeOnSubmit" id="firstNameInput" type="text" placeholder="First Name" />
+        <input class="wipeOnSubmit" id="lastNameInput" type="text" placeholder="Last Name" />
+        <input class="wipeOnSubmit" id="idInput" type="number" placeholder="ID" />
+        <input class="wipeOnSubmit" id="titleInput" type="text" placeholder="Title" />
+        <input class="wipeOnSubmit" id="annualSalaryInput" type="number" placeholder="Annual Salary" />
+        <button id="fillRandomButton">fillRandom</button>
+        <button id="submitButton">submit</button>
     </div>
     <div id="displayDiv">
         <table>
@@ -34,7 +38,7 @@
                     <td>Annual Salary</td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="employeeData">
 
             </tbody>
             <tfoot>
