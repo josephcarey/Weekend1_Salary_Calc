@@ -7,18 +7,22 @@ class Employee {
         this.id = id;
         this.title = title;
 
+        this.includedInCalculation = true;
+
         // Techincally floats are iffy in JavaScript in re: accuracy. But for this it's okay
         this.annualSalary = Number(annualSalary).toFixed(2);
     }
 
     getDOMtext() {
         return `
-            <tr>
+            <tr class="employeeRow">
                 <td>${this.firstName}</td>
                 <td>${this.lastName}</td>
                 <td>${this.id}</td>
                 <td>${this.title}</td>
                 <td>\$ ${this.annualSalary}</td>
+                <td><input type="checkbox" checked="true" class="includeCheckBox" /></td>
+                <td><button class="deleteMe">Delete</button>
             </tr>`
     }
 }
@@ -34,6 +38,7 @@ function readyNow() {
     // Event handlers!
     $('#submitButton').on('click', handleSubmitClick);
     $('#fillRandomButton').on('click', handleFillRandomClick);
+    $('#employeeData').on('click','.deleteMe', handleDeleteClick);
 
 }
 
@@ -63,6 +68,24 @@ function handleSubmitClick() {
     $('.wipeOnSubmit').val('');
 
     // Use a class on these    
+}
+
+function handleDeleteClick() {
+
+    // Go to employee data, get a list of its trs, find our parent tr in that list
+    // this still isn't perfect (I would love to not have to know #employeeData s) name
+    var positionToDelete = $( '#employeeData > tr' ).index( this.closest('tr') );
+    
+    // also worked to get the index of the deleteMe class, which are only on
+    // the deletion buttons. Also, we could give a class to only the trs
+    // that are in this table. But I think this is most elegant.
+
+    console.log(positionToDelete);
+
+    allEmployees.splice(positionToDelete, 1);
+
+    updateDisplay();    
+    
 }
 
 function updateDisplay() {
