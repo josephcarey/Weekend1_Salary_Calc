@@ -66,8 +66,7 @@ function handleSubmitClick() {
 
     // Wipe the input fields
     $('.wipeOnSubmit').val('');
-
-    // Use a class on these    
+  
 }
 
 function handleDeleteClick() {
