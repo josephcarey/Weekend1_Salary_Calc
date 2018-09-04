@@ -25,9 +25,9 @@ class Employee {
                 <td>${this.lastName}</td>
                 <td>${this.id}</td>
                 <td>${this.title}</td>
-                <td>\$ ${getPrintableCurrency( this.annualSalary )}</td>
+                <td>\$${getPrintableCurrency( this.annualSalary )}</td>
                 <td><input type="checkbox" ${checked} class="includeCheckBox" /></td>
-                <td><button class="deleteMe">Delete</button>
+                <td><button class="btn btn-secondary deleteMe">Delete</button>
             </tr>`
     }
 }
@@ -136,9 +136,9 @@ function updateTotalMonthlySalaries() {
     $( '#monthlyTotalSalary' ).append( '$' + getPrintableCurrency( totalMonthlySalaries ) );
 
     if ( totalMonthlySalaries > 20000 ) {
-        $( '#turnRedIfOver' ).css( 'background-color', 'red' )
+        $( '#turnRedIfOver' ).attr( 'class', 'alert alert-danger' )
     } else {
-        $( '#turnRedIfOver' ).css( 'background-color', '' )
+        $( '#turnRedIfOver' ).attr( 'class', 'alert alert-success' )
     }
 
 }
@@ -189,7 +189,7 @@ function handleFillRandomClick() {
     $( '#annualSalaryInput' ).val( annualSalary );
 
     // Submit the data. This is easy to comment out.
-    handleSubmitClick();
+    // handleSubmitClick();
 }
 
 function randomIntBetween( min, max ) {

@@ -2,11 +2,14 @@
 <html>
 
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Salary Calculator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="vendors/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
 
     <script src="vendors/jquery-3.3.1.min.js"></script>
@@ -14,44 +17,112 @@
 </head>
 
 <body>
-    <div id="titleDiv">
-        <h1>Salary Calculator</h1>
-    </div>
-    <div id="controlDiv">
 
-        <!-- Consider wrapping these in a form? Then we can include required, autocomplete -->
-        <input class="wipeOnSubmit" id="firstNameInput" type="text" placeholder="First Name" />
-        <input class="wipeOnSubmit" id="lastNameInput" type="text" placeholder="Last Name" />
-        <input class="wipeOnSubmit" id="idInput" type="number" placeholder="ID" />
-        <input class="wipeOnSubmit" id="titleInput" type="text" placeholder="Title" />
-        <input class="wipeOnSubmit" id="annualSalaryInput" type="number" placeholder="Annual Salary" />
-        <button id="fillRandomButton">fillRandom</button>
-        <button id="submitButton">submit</button>
-    </div>
-    <div id="displayDiv">
-        <table>
-            <caption>Employees</caption>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Annual Salary</th>
-                    <th>Include</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody id="employeeData">
+    <div class="container">
 
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5" id="turnRedIfOver">Total Monthly Salaries: <span id="monthlyTotalSalary">$20,000</span></td>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="row">
+
+            <div class="col-12">
+                <div class="jumbotron" id="titleDiv">
+                    <h1 class="display-4">Salary Calculator</h1>
+                    <p class="lead">Add employees below. You can delete them using the buttons, or remove them from the calculations
+                        temporarily using the checkboxes. Total monthly salary is displayed at the bottom and will warn you
+                        if you go over $20,000. Resize to see the page take two different forms depending on your screen
+                        size.
+                    </p>
+                </div>
+            </div>
+
+            <div class="container col-xs-12 col-lg-4" id="controlDiv">
+
+                <div class="col-12 alert alert-primary">
+                    <h3>Add an Employee</h3>
+                </div>
+
+                <div class="row">
+
+                    <!-- Consider wrapping these in a form? Then we can include required, autocomplete -->
+                    <div class="col-4">
+                        <label for="firstNameInput"><h6>First Name</h6></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control wipeOnSubmit" id="firstNameInput" type="text" placeholder="First Name" />
+                    </div>
+
+                    <div class="col-4">
+                        <label for="lastNameInput"><h6>Last Name</h6></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control wipeOnSubmit" id="lastNameInput" type="text" placeholder="Last Name" />
+                    </div>
+
+                    <div class="col-4">
+                        <label for="idInput"><h6>ID</h6></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control wipeOnSubmit" id="idInput" type="number" placeholder="ID" />
+                    </div>
+
+                    <div class="col-4">
+                        <label for="titleInput"><h6>Title</h6></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control wipeOnSubmit" id="titleInput" type="text" placeholder="Title" />
+                    </div>
+
+                    <div class="col-4">
+                        <label for="annualSalaryInput"><h6>Annual Salary</h6></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control wipeOnSubmit" id="annualSalaryInput" type="number" placeholder="Annual Salary" />
+                    </div>
+
+                    <div class="col-4">
+                        <button class="btn btn-secondary col-12" id="fillRandomButton">Random</button>
+                    </div>
+                    <div class="col-8">
+                        <button class="btn btn-primary col-12" id="submitButton">Submit</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="container col-xs-12 col-lg-8" id="displayDiv">
+
+                <table class="table table-striped table-responsive-sm">
+
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Annual Salary</th>
+                            <th scope="col">Incl.</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeData">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="7">
+                                <div id="turnRedIfOver" class="alert alert-success">
+                                    Total Monthly Salaries: <span id="monthlyTotalSalary">$20,000</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+
     </div>
+    <!--End of whole body container-->
+
 </body>
 
 </html>
